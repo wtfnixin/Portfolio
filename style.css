@@ -1,0 +1,108 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    max-width: 100%;
+    height: 100vh;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.nav-right li {
+    list-style-type: none;
+}
+.nav-right li a {
+    text-decoration: none;
+    color: black;
+}
+nav {
+    display: flex;
+    border: 2px solid rgb(255, 255, 255);
+    align-items: center;
+}
+.nav-right ul {
+    display: flex;
+    gap: 50px;
+    padding: 10px;
+}
+.navbar {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    font-family: "lexend", sans-serif;
+    z-index: 100; 
+}
+.nav-right {
+    margin-right: 20px;
+    display: flex;
+  
+}
+nav-left {
+    margin-left: 20px;
+    display: flex;
+}
+.about{
+    background-color: aqua;
+    height: 100vh;
+}
+.hero{
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+}
+.projects{
+    background-color: rgb(255, 255, 0);
+    height: 100vh;
+}
+.contact{
+    background-color: rgb(0, 255, 0);
+    height: 100vh;
+}
+.nav-left h2 {
+    font-size: 20px;
+    color: #333;
+    margin-left: 25px;
+    
+}
+.hero{
+    display: flex;
+    justify-content: space-between;
+    padding: 100px 45px;
+    align-items: center;
+    font-family: lexend, sans-serif;
+}
+a{
+    text-decoration: none   ;
+}
+.hero .texts{
+    flex: 5;
+}
+.hero .texts .name{
+    font-family: "Pixelify Sans", LEXEND, sans-serif;
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+.hero .texts .greeting{
+
+    font-size: 50px;
+  
+}
+.hero img{
+    flex: 2 ;
+    display: flex;
+}
+.hero .links{
+    display: flex;
+    gap: 20px;
+}
