@@ -1,108 +1,196 @@
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    max-width: 100%;
-    height: 100vh;
+body {
+  max-width: 100%;
+  height: 100vh;
 }
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
 .nav-right li {
-    list-style-type: none;
+  list-style-type: none;
 }
 .nav-right li a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 nav {
-    display: flex;
-    border: 2px solid rgb(255, 255, 255);
-    align-items: center;
+  display: flex;
+  border: 2px solid rgb(255, 255, 255);
+  align-items: center;
 }
 .nav-right ul {
-    display: flex;
-    gap: 50px;
-    padding: 10px;
+  display: flex;
+  gap: 50px;
+  padding: 10px;
 }
 .navbar {
-    position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #f8f9fa;
-    font-family: "lexend", sans-serif;
-    z-index: 100; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  font-family: "lexend", sans-serif;
+  z-index: 100;
 }
 .nav-right {
-    margin-right: 20px;
-    display: flex;
-  
+  margin-right: 20px;
+  display: flex;
 }
 nav-left {
-    margin-left: 20px;
-    display: flex;
+  margin-left: 20px;
+  display: flex;
 }
-.about{
-    background-color: aqua;
-    height: 100vh;
+
+.hero {
+  background-color: rgb(255, 255, 255);
+  height: 100vh;
+
 }
-.hero{
-    background-color: rgb(255, 255, 255);
-    height: 100vh;
+.projects {
+  background-color: rgb(255, 255, 0);
+  height: 100vh;
 }
-.projects{
-    background-color: rgb(255, 255, 0);
-    height: 100vh;
-}
-.contact{
-    background-color: rgb(0, 255, 0);
-    height: 100vh;
+.contact {
+  background-color: rgb(0, 255, 0);
+  height: 100vh;
 }
 .nav-left h2 {
-    font-size: 20px;
-    color: #333;
-    margin-left: 25px;
-    
+  font-size: 20px;
+  color: #333;
+  margin-left: 25px;
 }
-.hero{
+.hero {
+    height: 80vh;
+    position: relative;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    --color: #E1E1E1;
+    background-color: #F3F3F3;
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
+        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+    background-size: 55px 55px;
+    opacity: 0.4;
+    z-index: 1;
+}
+ .hero {
     display: flex;
     justify-content: space-between;
     padding: 100px 45px;
     align-items: center;
     font-family: lexend, sans-serif;
+    position: relative;
+    z-index: 2;
 }
-a{
-    text-decoration: none   ;
+a {
+  text-decoration: none;
 }
-.hero .texts{
-    flex: 5;
+.hero .texts {
+  flex: 5;
+  font-size: 28px;
+  margin-top: 90px;
 }
-.hero .texts .name{
-    font-family: "Pixelify Sans", LEXEND, sans-serif;
-    font-size: 50px;
-    color: rgb(0, 0, 0);
-    margin-bottom: 10px;
-    font-size: 1.3em;
+.hero .texts .name {
+  font-family: "Pixelify Sans", LEXEND, sans-serif;
+  font-size: 50px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+  font-size: 1.3em;
 }
-.hero .texts .greeting{
-
-    font-size: 50px;
-  
+.hero .texts .greeting {
+  font-size: 50px;
 }
-.hero img{
-    flex: 2 ;
-    display: flex;
+.hero img {
+  flex: 2;
+  display: flex;
+  border-radius: 50%;
+  border: 2px solid rgb(30 41 59);
+  background-color: rgb(245 245 244);
+  width: 475px;
+  justify-content: right;
 }
-.hero .links{
-    display: flex;
+.hero .texts .skills {
+    padding: 20px 0;
     gap: 20px;
+    display: flex;
+}
+.hero p{
+    margin-top: 13px;
+}
+.hero h2{
+    margin-top: 5px;
+}
+.hero  .skills a{
+    display: inline-block;
+    border: 2px solid rgb(30 41 59) ;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: rgb(30 41 59);
+    color: rgb(214 211 209);
+    transition: all 0.5s ease;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.hero  .skills a:hover{
+    background-color: rgb(214 211 209);
+    color: rgb(30 41 59);
+}
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+}
+/*About Section*/
+.about h2{
+    justify-content: center;
+    display: flex;
+    font-size: 50px;
+}
+.about .text {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+}
+.cells{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px 0;
+    padding: 0 50px;
+    gap: 30px;
+}
+.cell{
+    border: 2px solid rgb(30 41 59);
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    transition: all 0.3s ease;
+}
+.about {
+  background-color: rgb(250, 249, 249);
+  height: 80vh;
+  font-family: lexend, sans-serif;
+}
+.cell:hover{
+    background-color: rgb(214 211 209);
 }
