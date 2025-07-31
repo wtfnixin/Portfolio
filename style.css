@@ -3,60 +3,61 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   max-width: 100%;
   height: 100vh;
   transition: all 0.3s ease;
+  /* UPDATED: Added light theme base colors matching shadcn */
+  background-color: hsl(0 0% 100%);
+  color: hsl(222.2 84% 4.9%);
 }
-/*darkmode*/
+
+/* UPDATED: Complete shadcn/ui dark theme implementation with proper color tokens */
 body.dark-theme {
-  filter: invert(1) hue-rotate(180deg);
+  background-color: hsl(222.2 84% 4.9%);
+  color: hsl(210 40% 98%);
 }
 
+/* UPDATED: Removed problematic filter inversions, using proper color values instead */
 body.dark-theme img {
-  filter: invert(1) hue-rotate(180deg);
+  /* Removed filter inversion for better image quality */
 }
 
-body.dark-theme .project-card {
-  filter: invert(1) hue-rotate(180deg);
-}
-body.dark-theme .project-card .card-content {
-  filter: invert(1) hue-rotate(180deg);
-}
-body.dark-theme .project-card .card-image {
-  filter: invert(1) hue-rotate(180deg);
-}
-body.dark-theme .project-card .card-image .card-image.web-app{
-  filter: invert(1) hue-rotate(180deg);
-}
-body.dark-theme .card-content p{
-  filter: invert(1) hue-rotate(180deg);
-}
-body.dark-theme .card-content h3{
-  filter: invert(1) hue-rotate(180deg);
-}
-body.dark-theme .project-links{
-  filter: invert(1) hue-rotate(180deg);
-}
+/* UPDATED: Enhanced theme toggle with shadcn styling */
 .theme-toggle {
-  background: none;
-  border: 2px solid #333;
-  border-radius: 50%;
+  background: hsl(0 0% 100%);
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+  border-radius: 6px;
   width: 40px;
   height: 40px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  transition: all 0.3s ease;
+  font-size: 16px;
+  transition: all 0.2s ease;
   margin-right: 30px;
+  color: hsl(222.2 84% 4.9%);
 }
 
 .theme-toggle:hover {
-  background-color: #333;
-  color: white;
+  background-color: hsl(210 40% 96%);
+  border-color: hsl(214.3 31.8% 84.4%);
 }
+
+/* UPDATED: Dark theme toggle styles */
+body.dark-theme .theme-toggle {
+  background: hsl(222.2 84% 4.9%);
+  border: 1px solid hsl(217.2 32.6% 17.5%);
+  color: hsl(210 40% 98%);
+}
+
+body.dark-theme .theme-toggle:hover {
+  background-color: hsl(217.2 32.6% 17.5%);
+  border-color: hsl(217.2 32.6% 25%);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -64,20 +65,38 @@ html {
 .nav-right li {
   list-style-type: none;
 }
+
 .nav-right li a {
   text-decoration: none;
-  color: black;
+  color: hsl(222.2 84% 4.9%);
+  transition: color 0.2s ease;
 }
+
+.nav-right li a:hover {
+  color: hsl(222.2 47.4% 11.2%);
+}
+
+/* UPDATED: Dark theme navigation colors */
+body.dark-theme .nav-right li a {
+  color: hsl(210 40% 98%);
+}
+
+body.dark-theme .nav-right li a:hover {
+  color: hsl(210 40% 80%);
+}
+
 nav {
   display: flex;
-  border: 2px solid rgb(255, 255, 255);
+  border: none; /* UPDATED: Removed border for cleaner shadcn look */
   align-items: center;
 }
+
 .nav-right ul {
   display: flex;
   gap: 50px;
   padding: 10px;
 }
+
 .navbar {
   position: fixed;
   top: 0;
@@ -87,179 +106,331 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #f8f9fa;
+  /* UPDATED: shadcn navbar background with backdrop blur */
+  background-color: hsla(0, 0%, 100%, 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid hsl(214.3 31.8% 91.4%);
   font-family: "lexend", sans-serif;
   z-index: 100;
 }
+
+/* UPDATED: Dark theme navbar */
+body.dark-theme .navbar {
+  background-color: hsla(222.2, 84%, 4.9%, 0.8);
+  border-bottom: 1px solid hsl(217.2 32.6% 17.5%);
+}
+
 .nav-right {
   margin-right: 20px;
   display: flex;
-  align-items: center3;
+  align-items: center;
 }
-nav-left {
+
+.nav-left {
   margin-left: 20px;
   display: flex;
 }
 
-.hero {
-  background-color: rgb(255, 255, 255);
-  height: 100vh;
-
-}
-
-.contact {
-  background-color: rgb(0, 255, 0);
-  height: 100vh;
-}
 .nav-left h2 {
   font-size: 20px;
-  color: #333;
+  color: hsl(222.2 84% 4.9%);
   margin-left: 25px;
+  font-weight: 600;
 }
+
+/* UPDATED: Dark theme nav title */
+body.dark-theme .nav-left h2 {
+  color: hsl(210 40% 98%);
+}
+
 .hero {
-    height: 100vh;
-    position: relative;
+  height: 100vh;
+  position: relative;
+  /* UPDATED: shadcn background color */
+  background-color: hsl(0 0% 100%);
 }
+
+/* UPDATED: Dark theme hero background */
+body.dark-theme .hero {
+  background-color: hsl(222.2 84% 4.9%);
+}
+
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    --color: #E1E1E1;
-    background-color: #F3F3F3;
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
-    background-size: 55px 55px;
-    opacity: 0.4;
-    z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* UPDATED: shadcn-style subtle grid pattern */
+  --color: hsl(214.3 31.8% 91.4%);
+  background-color: hsl(0 0% 100%);
+  background-image: linear-gradient(
+      0deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    ),
+    linear-gradient(
+      90deg,
+      transparent 24%,
+      var(--color) 25%,
+      var(--color) 26%,
+      transparent 27%,
+      transparent 74%,
+      var(--color) 75%,
+      var(--color) 76%,
+      transparent 77%,
+      transparent
+    );
+  background-size: 55px 55px;
+  opacity: 0.45;
+  z-index: 1;
 }
- .hero {
-    display: flex;
-    justify-content: space-between;
-    padding: 100px 45px;
-    align-items: center;
-    font-family: lexend, sans-serif;
-    position: relative;
-    z-index: 2;
+
+/* UPDATED: Dark theme grid pattern */
+body.dark-theme .hero::before {
+  --color: hsl(217.2 32.6% 17.5%);
+  background-color: hsl(222.2 84% 4.9%);
+  opacity: 0.5;
 }
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 100px 45px;
+  align-items: center;
+  font-family: lexend, sans-serif;
+  position: relative;
+  z-index: 2;
+}
+
 a {
   text-decoration: none;
 }
+
 .hero .texts {
   flex: 5;
   font-size: 28px;
   margin-top: 170px;
 }
+
 .hero .texts .name {
   font-family: "Pixelify Sans", LEXEND, sans-serif;
   font-size: 50px;
-  color: rgb(0, 0, 0);
+  color: hsl(222.2 84% 4.9%);
   margin-bottom: 10px;
   font-size: 1.3em;
 }
+
+/* UPDATED: Dark theme name color */
+body.dark-theme .hero .texts .name {
+  color: hsl(210 40% 98%);
+}
+
 .hero .texts .greeting {
   font-size: 50px;
+  color: hsl(222.2 84% 4.9%);
 }
+
+/* UPDATED: Dark theme greeting color */
+body.dark-theme .hero .texts .greeting {
+  color: hsl(210 40% 98%);
+}
+
 .hero img {
   flex: 2;
   display: flex;
   border-radius: 50%;
-  border: 2px solid rgb(30 41 59);
-  background-color: rgb(245 245 244);
+  /* UPDATED: shadcn border styling */
+  border: 2px solid hsl(214.3 31.8% 91.4%);
+  background-color: hsl(210 40% 98%);
   width: 465px;
   justify-content: right;
   margin-top: 30px;
 }
+
+/* UPDATED: Dark theme image styling */
+body.dark-theme .hero img {
+  border: 2px solid hsl(217.2 32.6% 17.5%);
+  background-color: hsl(217.2 32.6% 17.5%);
+}
+
 .hero .texts .skills {
-    padding: 20px 0;
-    gap: 20px;
-    display: flex;
+  padding: 20px 0;
+  gap: 20px;
+  display: flex;
 }
-.hero p{
-    margin-top: 13px;
+
+.hero p {
+  margin-top: 13px;
+  color: hsl(215.4 16.3% 46.9%);
 }
-.hero h2{
-    margin-top: 5px;
+
+/* UPDATED: Dark theme paragraph color */
+body.dark-theme .hero p {
+  color: hsl(215 20.2% 65.1%);
 }
-.hero  .skills a{
-    display: inline-block;
-    border: 2px solid rgb(30 41 59) ;
-    border-radius: 10px;
-    padding: 5px 10px;
-    background-color: rgb(30 41 59);
-    color: rgb(214 211 209);
-    transition: all 0.5s ease;
-    font-size: 20px;
-    margin-top: 20px;
+
+.hero h2 {
+  margin-top: 5px;
+  color: hsl(222.2 84% 4.9%);
 }
-.hero  .skills a:hover{
-    background-color: rgb(214 211 209);
-    color: rgb(30 41 59);
+
+/* UPDATED: Dark theme h2 color */
+body.dark-theme .hero h2 {
+  color: hsl(210 40% 98%);
 }
+
+.hero .skills a {
+  display: inline-block;
+  /* UPDATED: shadcn button styling */
+  border: 2px solid rgb(30 41 59);
+  border-radius: 10px;
+  padding: 8px 16px;
+  background-color: rgb(30 41 59);
+  color: rgb(214 211 209);
+  transition: all 0.2s ease;
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.hero .skills a:hover {
+  background-color: hsl(222.2 47.4% 11.2%);
+}
+
+/* UPDATED: Dark theme skills buttons */
+body.dark-theme .hero .skills a {
+  background-color: rgb(214 211 209);
+  color: rgb(30 41 59);
+  border: 2px solid rgb(30 41 59);
+}
+
+body.dark-theme .hero .skills a:hover {
+  background-color: hsl(210 40% 96%);
+}
+
 .container {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    z-index: 2;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
 }
-/*About Section*/
-.about h2{
-    justify-content: center;
-    display: flex;
-    font-size: 50px;
-}
-.about .text {
-    display: flex;
-    justify-content: center;
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: -10px;
-}
-.cells{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 50px 0;
-    padding: 0 50px;
-    gap: 30px;
-}
-.cell{
-    border: 2px solid rgb(30 41 59);
-    padding: 5px 10px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
-    transition: all 0.3s ease;
-}
+
+/* About Section - UPDATED: shadcn styling */
 .about {
-  background-color: rgb(250, 249, 249);
+  background-color: hsl(210 40% 98%);
   height: 40vh;
   font-family: lexend, sans-serif;
   padding: 20px 0;
 }
-.cell:hover{
-    background-color: rgb(214 211 209);
+
+/* UPDATED: Dark theme about section */
+body.dark-theme .about {
+  background-color: hsl(217.2 32.6% 17.5%);
 }
+
+.about h2 {
+  justify-content: center;
+  display: flex;
+  font-size: 50px;
+  color: hsl(222.2 84% 4.9%);
+}
+
+/* UPDATED: Dark theme about h2 */
+body.dark-theme .about h2 {
+  color: hsl(210 40% 98%);
+}
+
+.about .text {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+  color: hsl(215.4 16.3% 46.9%);
+}
+
+/* UPDATED: Dark theme about text */
+body.dark-theme .about .text {
+  color: hsl(215 20.2% 65.1%);
+}
+
+.cells {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
+  padding: 0 50px;
+  gap: 30px;
+}
+
+.cell {
+  /* UPDATED: shadcn card styling */
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  transition: all 0.2s ease;
+  background-color: hsl(0 0% 100%);
+  color: hsl(222.2 84% 4.9%);
+}
+
+.cell:hover {
+  background-color: hsl(210 40% 96%);
+  border-color: hsl(214.3 31.8% 84.4%);
+}
+
+/* UPDATED: Dark theme cells */
+body.dark-theme .cell {
+  border: 1px solid hsl(217.2 32.6% 17.5%);
+  background-color: hsl(222.2 84% 4.9%);
+  color: hsl(210 40% 98%);
+}
+
+body.dark-theme .cell:hover {
+  background-color: hsl(217.2 32.6% 17.5%);
+  border-color: hsl(217.2 32.6% 25%);
+}
+
 .cell .javascript {
-   border-radius: 100px;
+  border-radius: 100px;
 }
-/*projects section*/
+
+/* Projects section - UPDATED: shadcn styling */
 .projects {
-  background-color: rgba(255, 255, 255, 0.336);
+  background-color: hsl(0 0% 100%);
   height: 100vh;
   font-family: lexend, sans-serif;
 }
+
+/* UPDATED: Dark theme projects */
+body.dark-theme .projects {
+  background-color: hsl(222.2 84% 4.9%);
+}
+
 .projects h2 {
   text-align: center;
   font-size: 50px;
   padding: 40px 0;
+  color: hsl(222.2 84% 4.9%);
 }
 
-/* UPDATED: Added project cards styles */
+/* UPDATED: Dark theme projects h2 */
+body.dark-theme .projects h2 {
+  color: hsl(210 40% 98%);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -270,18 +441,30 @@ a {
 }
 
 .project-card {
-  background: white;
-  border-radius: 10px;
+  /* UPDATED: shadcn card styling */
+  background: hsl(0 0% 100%);
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  transition: all 0.2s ease;
   position: relative;
   height: 320px;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* UPDATED: Dark theme project cards */
+body.dark-theme .project-card {
+  background: hsl(217.2 32.6% 17.5%);
+  border: 1px solid hsl(217.2 32.6% 25%);
+}
+
+body.dark-theme .project-card:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
 }
 
 .card-image {
@@ -314,12 +497,17 @@ a {
 .project-title {
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: hsl(222.2 84% 4.9%);
   margin-bottom: 8px;
 }
 
+/* UPDATED: Dark theme project title */
+body.dark-theme .project-title {
+  color: hsl(210 40% 98%);
+}
+
 .project-description {
-  color: #666;
+  color: hsl(215.4 16.3% 46.9%);
   line-height: 1.4;
   margin-bottom: 12px;
   font-size: 12px;
@@ -327,6 +515,11 @@ a {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* UPDATED: Dark theme project description */
+body.dark-theme .project-description {
+  color: hsl(215 20.2% 65.1%);
 }
 
 .tech-stack {
@@ -337,12 +530,21 @@ a {
 }
 
 .tech-tag {
-  background: #f0f0f0;
-  color: #333;
+  /* UPDATED: shadcn badge styling */
+  background: hsl(210 40% 96%);
+  color: hsl(222.2 84% 4.9%);
   padding: 2px 8px;
-  border-radius: 12px;
+  border-radius: 4px;
   font-size: 10px;
   font-weight: 500;
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+}
+
+/* UPDATED: Dark theme tech tags */
+body.dark-theme .tech-tag {
+  background: hsl(217.2 32.6% 25%);
+  color: hsl(210 40% 98%);
+  border: 1px solid hsl(217.2 32.6% 35%);
 }
 
 .project-links {
@@ -355,34 +557,69 @@ a {
   align-items: center;
   gap: 5px;
   padding: 6px 12px;
-  border-radius: 5px;
+  border-radius: 4px;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   font-size: 12px;
   flex: 1;
   justify-content: center;
 }
 
 .live-link {
-  background: #1e293b;
-  color: white;
+  /* UPDATED: shadcn primary button */
+  background: hsl(222.2 84% 4.9%);
+  color: hsl(210 40% 98%);
+  border: 1px solid hsl(222.2 84% 4.9%);
 }
 
 .live-link:hover {
-  background: #334155;
-  transform: translateY(-2px);
+  background: hsl(222.2 47.4% 11.2%);
+  transform: translateY(-1px);
+}
+
+/* UPDATED: Dark theme live link */
+body.dark-theme .live-link {
+  background: hsl(210 40% 98%);
+  color: hsl(222.2 84% 4.9%);
+  border: 1px solid hsl(210 40% 98%);
+}
+
+body.dark-theme .live-link:hover {
+  background: hsl(210 40% 96%);
 }
 
 .github-link {
-  border: 2px solid #1e293b;
-  color: #1e293b;
+  /* UPDATED: shadcn secondary button */
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+  color: hsl(222.2 84% 4.9%);
+  background: hsl(0 0% 100%);
 }
 
 .github-link:hover {
-  background: #1e293b;
-  color: white;
-  transform: translateY(-2px);
+  background: hsl(210 40% 96%);
+  border-color: hsl(214.3 31.8% 84.4%);
+  transform: translateY(-1px);
 }
 
+/* UPDATED: Dark theme github link */
+body.dark-theme .github-link {
+  border: 1px solid hsl(217.2 32.6% 17.5%);
+  color: hsl(210 40% 98%);
+  background: hsl(217.2 32.6% 17.5%);
+}
 
+body.dark-theme .github-link:hover {
+  background: hsl(217.2 32.6% 25%);
+  border-color: hsl(217.2 32.6% 35%);
+}
+
+/* UPDATED: Contact section with shadcn styling */
+.contact {
+  background-color: hsl(210 40% 98%);
+  height: 100vh;
+}
+
+body.dark-theme .contact {
+  background-color: hsl(217.2 32.6% 17.5%);
+}
