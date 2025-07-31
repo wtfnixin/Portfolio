@@ -8,27 +8,22 @@ body {
   max-width: 100%;
   height: 100vh;
   transition: all 0.3s ease;
-  /* UPDATED: Added light theme base colors matching shadcn */
   background-color: hsl(0 0% 100%);
   color: hsl(222.2 84% 4.9%);
 }
 
-/* UPDATED: Complete shadcn/ui dark theme implementation with proper color tokens */
 body.dark-theme {
   background-color: hsl(222.2 84% 4.9%);
   color: hsl(210 40% 98%);
 }
 
-/* UPDATED: Removed problematic filter inversions, using proper color values instead */
 body.dark-theme img {
-  /* Removed filter inversion for better image quality */
 }
 
-/* UPDATED: Enhanced theme toggle with shadcn styling */
 .theme-toggle {
   background: hsl(0 0% 100%);
   border: 1px solid hsl(214.3 31.8% 91.4%);
-  border-radius: 6px;
+  border-radius: 50%;
   width: 40px;
   height: 40px;
   cursor: pointer;
@@ -36,17 +31,16 @@ body.dark-theme img {
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   margin-right: 30px;
   color: hsl(222.2 84% 4.9%);
 }
 
 .theme-toggle:hover {
-  background-color: hsl(210 40% 96%);
+  background-color: hsla(210, 10%, 73%, 0.959);
   border-color: hsl(214.3 31.8% 84.4%);
 }
 
-/* UPDATED: Dark theme toggle styles */
 body.dark-theme .theme-toggle {
   background: hsl(222.2 84% 4.9%);
   border: 1px solid hsl(217.2 32.6% 17.5%);
@@ -64,19 +58,39 @@ html {
 
 .nav-right li {
   list-style-type: none;
+  position: relative;
 }
 
 .nav-right li a {
   text-decoration: none;
   color: hsl(222.2 84% 4.9%);
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
+  position: relative;
+  display: block;
+  transition: all 0.3s ease;
 }
 
 .nav-right li a:hover {
   color: hsl(222.2 47.4% 11.2%);
+  transform: translateY(-2px);
 }
 
-/* UPDATED: Dark theme navigation colors */
+.nav-right li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, hsl(222.2 84% 4.9%), hsl(222.2 47.4% 11.2%));
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+}
+
+.nav-right li a:hover::after {
+  width: 100%;
+}
+
 body.dark-theme .nav-right li a {
   color: hsl(210 40% 98%);
 }
@@ -85,9 +99,13 @@ body.dark-theme .nav-right li a:hover {
   color: hsl(210 40% 80%);
 }
 
+body.dark-theme .nav-right li a::after {
+  background: linear-gradient(90deg, hsl(210 40% 98%), hsl(210 40% 80%));
+}
+
 nav {
   display: flex;
-  border: none; /* UPDATED: Removed border for cleaner shadcn look */
+  border: none;
   align-items: center;
 }
 
@@ -106,7 +124,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  /* UPDATED: shadcn navbar background with backdrop blur */
   background-color: hsla(0, 0%, 100%, 0.8);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid hsl(214.3 31.8% 91.4%);
@@ -114,7 +131,6 @@ nav {
   z-index: 100;
 }
 
-/* UPDATED: Dark theme navbar */
 body.dark-theme .navbar {
   background-color: hsla(222.2, 84%, 4.9%, 0.8);
   border-bottom: 1px solid hsl(217.2 32.6% 17.5%);
@@ -138,7 +154,6 @@ body.dark-theme .navbar {
   font-weight: 600;
 }
 
-/* UPDATED: Dark theme nav title */
 body.dark-theme .nav-left h2 {
   color: hsl(210 40% 98%);
 }
@@ -146,11 +161,9 @@ body.dark-theme .nav-left h2 {
 .hero {
   height: 100vh;
   position: relative;
-  /* UPDATED: shadcn background color */
   background-color: hsl(0 0% 100%);
 }
 
-/* UPDATED: Dark theme hero background */
 body.dark-theme .hero {
   background-color: hsl(222.2 84% 4.9%);
 }
@@ -162,39 +175,14 @@ body.dark-theme .hero {
   left: 0;
   width: 100%;
   height: 100%;
-  /* UPDATED: shadcn-style subtle grid pattern */
   --color: hsl(214.3 31.8% 91.4%);
   background-color: hsl(0 0% 100%);
-  background-image: linear-gradient(
-      0deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent
-    ),
-    linear-gradient(
-      90deg,
-      transparent 24%,
-      var(--color) 25%,
-      var(--color) 26%,
-      transparent 27%,
-      transparent 74%,
-      var(--color) 75%,
-      var(--color) 76%,
-      transparent 77%,
-      transparent
-    );
+  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
   background-size: 55px 55px;
   opacity: 0.45;
   z-index: 1;
 }
 
-/* UPDATED: Dark theme grid pattern */
 body.dark-theme .hero::before {
   --color: hsl(217.2 32.6% 17.5%);
   background-color: hsl(222.2 84% 4.9%);
@@ -229,7 +217,6 @@ a {
   font-size: 1.3em;
 }
 
-/* UPDATED: Dark theme name color */
 body.dark-theme .hero .texts .name {
   color: hsl(210 40% 98%);
 }
@@ -239,7 +226,6 @@ body.dark-theme .hero .texts .name {
   color: hsl(222.2 84% 4.9%);
 }
 
-/* UPDATED: Dark theme greeting color */
 body.dark-theme .hero .texts .greeting {
   color: hsl(210 40% 98%);
 }
@@ -248,17 +234,15 @@ body.dark-theme .hero .texts .greeting {
   flex: 2;
   display: flex;
   border-radius: 50%;
-  /* UPDATED: shadcn border styling */
-  border: 2px solid hsl(214.3 31.8% 91.4%);
+  border: 2px solid rgb(30 41 59);
   background-color: hsl(210 40% 98%);
   width: 465px;
   justify-content: right;
   margin-top: 30px;
 }
 
-/* UPDATED: Dark theme image styling */
 body.dark-theme .hero img {
-  border: 2px solid hsl(217.2 32.6% 17.5%);
+  border: 2px solid rgb(214 211 209);
   background-color: hsl(217.2 32.6% 17.5%);
 }
 
@@ -273,7 +257,6 @@ body.dark-theme .hero img {
   color: hsl(215.4 16.3% 46.9%);
 }
 
-/* UPDATED: Dark theme paragraph color */
 body.dark-theme .hero p {
   color: hsl(215 20.2% 65.1%);
 }
@@ -283,14 +266,12 @@ body.dark-theme .hero p {
   color: hsl(222.2 84% 4.9%);
 }
 
-/* UPDATED: Dark theme h2 color */
 body.dark-theme .hero h2 {
   color: hsl(210 40% 98%);
 }
 
 .hero .skills a {
   display: inline-block;
-  /* UPDATED: shadcn button styling */
   border: 2px solid rgb(30 41 59);
   border-radius: 10px;
   padding: 8px 16px;
@@ -303,28 +284,30 @@ body.dark-theme .hero h2 {
 }
 
 .hero .skills a:hover {
-  background-color: hsl(222.2 47.4% 11.2%);
+  background-color: rgb(214 211 209);
+  color: rgb(30 41 59);
+  transform: translateY(-3px);
 }
 
-/* UPDATED: Dark theme skills buttons */
 body.dark-theme .hero .skills a {
   background-color: rgb(214 211 209);
   color: rgb(30 41 59);
-  border: 2px solid rgb(30 41 59);
+  border: 2px solid rgb(214 211 209);
 }
 
 body.dark-theme .hero .skills a:hover {
-  background-color: hsl(210 40% 96%);
+  background-color: rgb(30 41 59);
+  color: rgb(214 211 209);
+  transform: translateY(-3px);
 }
 
 .container {
   width: 100%;
   height: 100%;
-  position: relative;
+  position: relative; 
   z-index: 2;
 }
 
-/* About Section - UPDATED: shadcn styling */
 .about {
   background-color: hsl(210 40% 98%);
   height: 40vh;
@@ -332,7 +315,6 @@ body.dark-theme .hero .skills a:hover {
   padding: 20px 0;
 }
 
-/* UPDATED: Dark theme about section */
 body.dark-theme .about {
   background-color: hsl(217.2 32.6% 17.5%);
 }
@@ -344,7 +326,6 @@ body.dark-theme .about {
   color: hsl(222.2 84% 4.9%);
 }
 
-/* UPDATED: Dark theme about h2 */
 body.dark-theme .about h2 {
   color: hsl(210 40% 98%);
 }
@@ -358,7 +339,6 @@ body.dark-theme .about h2 {
   color: hsl(215.4 16.3% 46.9%);
 }
 
-/* UPDATED: Dark theme about text */
 body.dark-theme .about .text {
   color: hsl(215 20.2% 65.1%);
 }
@@ -373,7 +353,6 @@ body.dark-theme .about .text {
 }
 
 .cell {
-  /* UPDATED: shadcn card styling */
   border: 1px solid hsl(214.3 31.8% 91.4%);
   padding: 8px 16px;
   border-radius: 6px;
@@ -389,9 +368,9 @@ body.dark-theme .about .text {
 .cell:hover {
   background-color: hsl(210 40% 96%);
   border-color: hsl(214.3 31.8% 84.4%);
+  transform: translateY(-5px);
 }
 
-/* UPDATED: Dark theme cells */
 body.dark-theme .cell {
   border: 1px solid hsl(217.2 32.6% 17.5%);
   background-color: hsl(222.2 84% 4.9%);
@@ -401,20 +380,20 @@ body.dark-theme .cell {
 body.dark-theme .cell:hover {
   background-color: hsl(217.2 32.6% 17.5%);
   border-color: hsl(217.2 32.6% 25%);
+  transform: translateY(-5px);
 }
 
 .cell .javascript {
   border-radius: 100px;
 }
 
-/* Projects section - UPDATED: shadcn styling */
 .projects {
   background-color: hsl(0 0% 100%);
-  height: 100vh;
+  height: 76.5vh;
   font-family: lexend, sans-serif;
+  transition: all 0.5s ease;
 }
 
-/* UPDATED: Dark theme projects */
 body.dark-theme .projects {
   background-color: hsl(222.2 84% 4.9%);
 }
@@ -426,7 +405,6 @@ body.dark-theme .projects {
   color: hsl(222.2 84% 4.9%);
 }
 
-/* UPDATED: Dark theme projects h2 */
 body.dark-theme .projects h2 {
   color: hsl(210 40% 98%);
 }
@@ -441,23 +419,21 @@ body.dark-theme .projects h2 {
 }
 
 .project-card {
-  /* UPDATED: shadcn card styling */
   background: hsl(0 0% 100%);
   border: 1px solid hsl(214.3 31.8% 91.4%);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  transition: all 0.2s ease;
+  transition: all 0.5s ease;
   position: relative;
   height: 320px;
 }
 
 .project-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-9px) scale(1.02);
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
-/* UPDATED: Dark theme project cards */
 body.dark-theme .project-card {
   background: hsl(217.2 32.6% 17.5%);
   border: 1px solid hsl(217.2 32.6% 25%);
@@ -501,7 +477,6 @@ body.dark-theme .project-card:hover {
   margin-bottom: 8px;
 }
 
-/* UPDATED: Dark theme project title */
 body.dark-theme .project-title {
   color: hsl(210 40% 98%);
 }
@@ -517,7 +492,6 @@ body.dark-theme .project-title {
   overflow: hidden;
 }
 
-/* UPDATED: Dark theme project description */
 body.dark-theme .project-description {
   color: hsl(215 20.2% 65.1%);
 }
@@ -530,7 +504,6 @@ body.dark-theme .project-description {
 }
 
 .tech-tag {
-  /* UPDATED: shadcn badge styling */
   background: hsl(210 40% 96%);
   color: hsl(222.2 84% 4.9%);
   padding: 2px 8px;
@@ -540,7 +513,6 @@ body.dark-theme .project-description {
   border: 1px solid hsl(214.3 31.8% 91.4%);
 }
 
-/* UPDATED: Dark theme tech tags */
 body.dark-theme .tech-tag {
   background: hsl(217.2 32.6% 25%);
   color: hsl(210 40% 98%);
@@ -567,7 +539,6 @@ body.dark-theme .tech-tag {
 }
 
 .live-link {
-  /* UPDATED: shadcn primary button */
   background: hsl(222.2 84% 4.9%);
   color: hsl(210 40% 98%);
   border: 1px solid hsl(222.2 84% 4.9%);
@@ -578,7 +549,6 @@ body.dark-theme .tech-tag {
   transform: translateY(-1px);
 }
 
-/* UPDATED: Dark theme live link */
 body.dark-theme .live-link {
   background: hsl(210 40% 98%);
   color: hsl(222.2 84% 4.9%);
@@ -590,7 +560,6 @@ body.dark-theme .live-link:hover {
 }
 
 .github-link {
-  /* UPDATED: shadcn secondary button */
   border: 1px solid hsl(214.3 31.8% 91.4%);
   color: hsl(222.2 84% 4.9%);
   background: hsl(0 0% 100%);
@@ -602,7 +571,6 @@ body.dark-theme .live-link:hover {
   transform: translateY(-1px);
 }
 
-/* UPDATED: Dark theme github link */
 body.dark-theme .github-link {
   border: 1px solid hsl(217.2 32.6% 17.5%);
   color: hsl(210 40% 98%);
@@ -614,12 +582,492 @@ body.dark-theme .github-link:hover {
   border-color: hsl(217.2 32.6% 35%);
 }
 
-/* UPDATED: Contact section with shadcn styling */
 .contact {
   background-color: hsl(210 40% 98%);
-  height: 100vh;
+  min-height: 100vh;
+  font-family: lexend, sans-serif;
+  padding: 80px 20px 40px;
 }
 
 body.dark-theme .contact {
   background-color: hsl(217.2 32.6% 17.5%);
 }
+
+.contact-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 50px;
+  color: hsl(222.2 84% 4.9%);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+body.dark-theme .contact h2 {
+  color: hsl(210 40% 98%);
+}
+
+.contact-description {
+  text-align: center;
+  font-size: 18px;
+  color: hsl(215.4 16.3% 46.9%);
+  margin-bottom: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.dark-theme .contact-description {
+  color: hsl(215 20.2% 65.1%);
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+/* Contact Info Cards */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.contact-card {
+  background: hsl(0 0% 100%);
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.contact-card:hover::before {
+  left: 100%;
+}
+
+.contact-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+  border-color: hsl(222.2 84% 4.9%);
+  background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+}
+
+body.dark-theme .contact-card {
+  background: hsl(222.2 84% 4.9%);
+  border: 1px solid hsl(217.2 32.6% 17.5%);
+}
+
+body.dark-theme .contact-card::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+}
+
+body.dark-theme .contact-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 10px 10px -5px rgb(0 0 0 / 0.2);
+  border-color: hsl(210 40% 98%);
+  background: linear-gradient(135deg, hsl(222.2 84% 4.9%) 0%, hsl(217.2 32.6% 17.5%) 100%);
+}
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  background: hsl(222.2 84% 4.9%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 24px;
+  color: hsl(210 40% 98%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card:hover .contact-icon {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 4px 8px -2px rgb(0 0 0 / 0.15);
+}
+
+body.dark-theme .contact-icon {
+  background: hsl(210 40% 98%);
+  color: hsl(222.2 84% 4.9%);
+}
+
+.contact-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: hsl(222.2 84% 4.9%);
+  margin-bottom: 8px;
+}
+
+body.dark-theme .contact-card h3 {
+  color: hsl(210 40% 98%);
+}
+
+.contact-card p {
+  color: hsl(215.4 16.3% 46.9%);
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+body.dark-theme .contact-card p {
+  color: hsl(215 20.2% 65.1%);
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: hsl(222.2 84% 4.9%);
+  color: hsl(210 40% 98%);
+  border: 1px solid hsl(222.2 84% 4.9%);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.contact-link:hover {
+  background: hsl(222.2 47.4% 11.2%);
+  transform: translateY(-1px);
+}
+
+body.dark-theme .contact-link {
+  background: hsl(210 40% 98%);
+  color: hsl(222.2 84% 4.9%);
+  border: 1px solid hsl(210 40% 98%);
+}
+
+body.dark-theme .contact-link:hover {
+  background: hsl(210 40% 96%);
+}
+
+/* Contact Form */
+.contact-form-container {
+  background: hsl(0 0% 100%);
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+body.dark-theme .contact-form-container {
+  background: hsl(222.2 84% 4.9%);
+  border: 1px solid hsl(217.2 32.6% 17.5%);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  color: hsl(222.2 84% 4.9%);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+body.dark-theme .form-group label {
+  color: hsl(210 40% 98%);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+  border-radius: 6px;
+  background: hsl(0 0% 100%);
+  color: hsl(222.2 84% 4.9%);
+  font-size: 14px;
+  font-family: lexend, sans-serif;
+  transition: all 0.2s ease;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: hsl(222.2 84% 4.9%);
+  box-shadow: 0 0 0 2px hsl(222.2 84% 4.9% / 0.1);
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group textarea {
+  background: hsl(217.2 32.6% 17.5%);
+  border: 1px solid hsl(217.2 32.6% 25%);
+  color: hsl(210 40% 98%);
+}
+
+body.dark-theme .form-group input:focus,
+body.dark-theme .form-group textarea:focus {
+  border-color: hsl(210 40% 98%);
+  box-shadow: 0 0 0 2px hsl(210 40% 98% / 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: hsl(215.4 16.3% 46.9%);
+}
+
+body.dark-theme .form-group input::placeholder,
+body.dark-theme .form-group textarea::placeholder {
+  color: hsl(215 20.2% 65.1%);
+}
+
+.error-message {
+  display: block;
+  color: hsl(0 84.2% 60.2%);
+  font-size: 12px;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px 24px;
+  background: hsl(222.2 84% 4.9%);
+  color: hsl(210 40% 98%);
+  border: 1px solid hsl(222.2 84% 4.9%);
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: lexend, sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.submit-btn:hover {
+  background: hsl(222.2 47.4% 11.2%);
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+body.dark-theme .submit-btn {
+  background: hsl(210 40% 98%);
+  color: hsl(222.2 84% 4.9%);
+  border: 1px solid hsl(210 40% 98%);
+}
+
+body.dark-theme .submit-btn:hover {
+  background: hsl(210 40% 96%);
+}
+
+/* Social Links */
+.social-links {
+  text-align: center;
+}
+
+.social-links h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: hsl(222.2 84% 4.9%);
+  margin-bottom: 24px;
+}
+
+body.dark-theme .social-links h3 {
+  color: hsl(210 40% 98%);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: hsl(0 0% 100%);
+  color: hsl(222.2 84% 4.9%);
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.social-link:hover::before {
+  left: 100%;
+}
+
+.social-link:hover {
+  background: hsl(210 40% 96%);
+  border-color: hsl(214.3 31.8% 84.4%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px -2px rgb(0 0 0 / 0.1);
+}
+
+.social-link:hover i {
+  transform: scale(1.1);
+}
+
+body.dark-theme .social-link {
+  background: hsl(222.2 84% 4.9%);
+  color: hsl(210 40% 98%);
+  border: 1px solid hsl(217.2 32.6% 17.5%);
+}
+
+body.dark-theme .social-link::before {
+  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.05), transparent);
+}
+
+body.dark-theme .social-link:hover {
+  background: hsl(217.2 32.6% 17.5%);
+  border-color: hsl(217.2 32.6% 25%);
+  box-shadow: 0 8px 16px -4px rgb(0 0 0 / 0.3);
+}
+
+.social-link i {
+  font-size: 18px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Individual social link colors on hover */
+.social-link:nth-child(1):hover {
+  border-color: #333;
+  color: #333;
+}
+
+.social-link:nth-child(2):hover {
+  border-color: #0077b5;
+  color: #0077b5;
+}
+
+.social-link:nth-child(3):hover {
+  border-color: #1da1f2;
+  color: #1da1f2;
+}
+
+.social-link:nth-child(4):hover {
+  border-color: #e4405f;
+  color: #e4405f;
+}
+
+body.dark-theme .social-link:nth-child(1):hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+body.dark-theme .social-link:nth-child(2):hover {
+  border-color: #0077b5;
+  color: #0077b5;
+}
+
+body.dark-theme .social-link:nth-child(3):hover {
+  border-color: #1da1f2;
+  color: #1da1f2;
+}
+
+body.dark-theme .social-link:nth-child(4):hover {
+  border-color: #e4405f;
+  color: #e4405f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact {
+    padding: 60px 16px 40px;
+  }
+  
+  .contact h2 {
+    font-size: 36px;
+  }
+  
+  .contact-description {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  
+  .contact-form-container {
+    padding: 24px;
+  }
+  
+  .social-icons {
+    gap: 12px;
+  }
+  
+  .social-link {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 20px;
+  }
+  
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .social-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .social-link {
+    width: 200px;
+    justify-content: center;
+  }
+}
+
