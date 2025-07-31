@@ -215,9 +215,27 @@ a {
   color: hsl(222.2 84% 4.9%);
   margin-bottom: 10px;
   font-size: 1.3em;
+  position: relative;
+}
+
+/* Typewriter effect */
+.hero .texts .name::after {
+  content: '|';
+  color: hsl(222.2 84% 4.9%);
+  animation: blink 1s infinite;
+  font-weight: normal;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 body.dark-theme .hero .texts .name {
+  color: hsl(210 40% 98%);
+}
+
+body.dark-theme .hero .texts .name::after {
   color: hsl(210 40% 98%);
 }
 
@@ -277,7 +295,7 @@ body.dark-theme .hero h2 {
   padding: 8px 16px;
   background-color: rgb(30 41 59);
   color: rgb(214 211 209);
-  transition: all 0.2s ease;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 20px;
   margin-top: 20px;
   font-weight: 500;
