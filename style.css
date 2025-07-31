@@ -16,6 +16,28 @@ body.dark-theme {
 body.dark-theme img {
   filter: invert(1) hue-rotate(180deg);
 }
+
+body.dark-theme .project-card {
+  filter: invert(1) hue-rotate(180deg);
+}
+body.dark-theme .project-card .card-content {
+  filter: invert(1) hue-rotate(180deg);
+}
+body.dark-theme .project-card .card-image {
+  filter: invert(1) hue-rotate(180deg);
+}
+body.dark-theme .project-card .card-image .card-image.web-app{
+  filter: invert(1) hue-rotate(180deg);
+}
+body.dark-theme .card-content p{
+  filter: invert(1) hue-rotate(180deg);
+}
+body.dark-theme .card-content h3{
+  filter: invert(1) hue-rotate(180deg);
+}
+body.dark-theme .project-links{
+  filter: invert(1) hue-rotate(180deg);
+}
 .theme-toggle {
   background: none;
   border: 2px solid #333;
@@ -72,7 +94,7 @@ nav {
 .nav-right {
   margin-right: 20px;
   display: flex;
-  align-items: center;
+  align-items: center3;
 }
 nav-left {
   margin-left: 20px;
@@ -84,10 +106,7 @@ nav-left {
   height: 100vh;
 
 }
-.projects {
-  background-color: rgb(255, 255, 0);
-  height: 100vh;
-}
+
 .contact {
   background-color: rgb(0, 255, 0);
   height: 100vh;
@@ -98,7 +117,7 @@ nav-left {
   margin-left: 25px;
 }
 .hero {
-    height: 80vh;
+    height: 100vh;
     position: relative;
 }
 .hero::before {
@@ -131,7 +150,7 @@ a {
 .hero .texts {
   flex: 5;
   font-size: 28px;
-  margin-top: 90px;
+  margin-top: 170px;
 }
 .hero .texts .name {
   font-family: "Pixelify Sans", LEXEND, sans-serif;
@@ -149,8 +168,9 @@ a {
   border-radius: 50%;
   border: 2px solid rgb(30 41 59);
   background-color: rgb(245 245 244);
-  width: 475px;
+  width: 465px;
   justify-content: right;
+  margin-top: 30px;
 }
 .hero .texts .skills {
     padding: 20px 0;
@@ -201,7 +221,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 60px 0;
+    margin: 50px 0;
     padding: 0 50px;
     gap: 30px;
 }
@@ -217,9 +237,152 @@ a {
 }
 .about {
   background-color: rgb(250, 249, 249);
-  height: 80vh;
+  height: 40vh;
   font-family: lexend, sans-serif;
+  padding: 20px 0;
 }
 .cell:hover{
     background-color: rgb(214 211 209);
 }
+.cell .javascript {
+   border-radius: 100px;
+}
+/*projects section*/
+.projects {
+  background-color: rgba(255, 255, 255, 0.336);
+  height: 100vh;
+  font-family: lexend, sans-serif;
+}
+.projects h2 {
+  text-align: center;
+  font-size: 50px;
+  padding: 40px 0;
+}
+
+/* UPDATED: Added project cards styles */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 60px;
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.project-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  height: 320px;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  height: 120px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  color: white;
+}
+
+.card-image.web-app {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.card-image.mobile-app {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.card-image.portfolio {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.project-description {
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  font-size: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.tech-tag {
+  background: #f0f0f0;
+  color: #333;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.project-links {
+  display: flex;
+  gap: 8px;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 12px;
+  flex: 1;
+  justify-content: center;
+}
+
+.live-link {
+  background: #1e293b;
+  color: white;
+}
+
+.live-link:hover {
+  background: #334155;
+  transform: translateY(-2px);
+}
+
+.github-link {
+  border: 2px solid #1e293b;
+  color: #1e293b;
+}
+
+.github-link:hover {
+  background: #1e293b;
+  color: white;
+  transform: translateY(-2px);
+}
+
+

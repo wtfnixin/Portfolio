@@ -11,110 +11,225 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Berkshire+Swash&family=Dancing+Script:wght@400..700&family=Lexend:wght@100..900&family=Pixelify+Sans:wght@400..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
-   <nav class="navbar">
+    <nav class="navbar">
       <div class="nav-left">
-            <h2>Nitin Kumar</h2>
+        <h2>Nitin Kumar</h2>
       </div>
       <div class="nav-right">
-        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Theme">
+        <button
+          class="theme-toggle"
+          onclick="toggleTheme()"
+          title="Toggle Dark Theme"
+        >
           <i class="fa-solid fa-moon" id="theme-icon"></i>
         </button>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
-
 
     <!-- Home Section -->
     <section id="home" class="hero">
       <div class="container">
         <div class="texts">
-            <h1 class="greeting">Hi, I'm<span class="name"> Nitin Kumar</span>👋</h1>
-            <h2>Engineering Student & Web Developer</h2>
-             
-            <p class="description">A passionate web developer with a knack for creating dynamic websites.</p>
-            
-            <div class="skills">
-              <a href="#about">
-                <i class="fa-solid fa-code"></i>
-                <span>Skills</span>
-              </a>
+          <h1 class="greeting">
+            Hi, I'm<span class="name"> Nitin Kumar</span>👋
+          </h1>
+          <h2>Engineering Student & Web Developer</h2>
 
-              <a href="#projects">
-                <i class="fa-solid fa-folder"></i>
-                <span>Projects</span>
-              </a>
+          <p class="description">
+            A passionate web developer with a knack for creating dynamic
+            websites.
+          </p>
 
-              <a href="#contact">
-                <i class="fa-solid fa-envelope"></i>
-                <span>Get in Touch</span>
-              </a>
-            </div>
+          <div class="skills">
+            <a href="#about">
+              <i class="fa-solid fa-code"></i>
+              <span>Skills</span>
+            </a>
+
+            <a href="#projects">
+              <i class="fa-solid fa-folder"></i>
+              <span>Projects</span>
+            </a>
+
+            <a href="#contact">
+              <i class="fa-solid fa-envelope"></i>
+              <span>Get in Touch</span>
+            </a>
           </div>
+        </div>
       </div>
-          
-          
-          <div class="links">
-            <div class="photo">
-              <img src="ChatGPT_Image_Jul_28__2025__11_54_46_PM-removebg-preview.webp" alt="Nitin Kumar" style="position: relative; z-index: 2;" /> 
-            </div>
-          </div>
+
+      <div class="links">
+        <div class="photo">
+          <img
+            src="ChatGPT_Image_Jul_28__2025__11_54_46_PM-removebg-preview.webp"
+            alt="Nitin Kumar"
+            style="position: relative; z-index: 2"
+          />
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
       <h2>Skills</h2>
       <div class="text">
-        Building modern web applications with a focus on clean design, smooth functionality, and great user experience.
-      </div>  
+        Building modern web applications with a focus on clean design, smooth
+        functionality, and great user experience.
+      </div>
 
       <div class="cells">
         <div class="cell">
-          <img src="html.png" alt="html logo">
+          <img src="html.png" alt="html logo" />
           <span>HTML</span>
         </div>
 
         <div class="cell">
-          <img src="css.png" alt="CSS logo">
+          <img src="css.png" alt="CSS logo" />
           <span>CSS</span>
         </div>
 
         <div class="cell">
-          <img src="javascript.png" alt="javascript logo">
+          <img src="javascript.png" class="javascript" alt="javascript logo" />
           <span>JAVASCRIPT</span>
         </div>
 
         <div class="cell">
-          <img src="react.png" alt="react logo">
+          <img src="git.png" alt="git logo" />
+          <span>Git</span>
+        </div>
+
+        <div class="cell">
+          <img src="react.png" alt="react logo" />
           <span>React.js</span>
         </div>
 
         <div class="cell">
-          <img src="python.png" alt="python logo">
+          <img src="python.png" alt="python logo" />
           <span>Python</span>
         </div>
 
         <div class="cell">
-          <img src="google cloud.png" alt="google logo">
+          <img src="google cloud.png" alt="google logo" />
           <span>Google Cloud</span>
         </div>
       </div>
-
     </section>
     <!-- Projects Section -->
     <section id="projects" class="projects">
-        <div class="projects-content"></div>
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <!-- Project Card 1 -->
+        <div class="project-card">
+          <div class="card-image web-app">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="card-content">
+            <h3 class="project-title">Animated Stopwatch</h3>
+            <p class="project-description">
+              A beautiful, responsive stopwatch with 3D tilt effects and
+              glassmorphism design. Features precise timing lap functionality,
+              and smooth animations
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">HTMl5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Javascript</span>
+              <span class="tech-tag"> Vanilla Tilt.js</span>
+            </div>
+            <div class="project-links">
+              <a href=" https://prodigywd02.vercel.app/" class="project-link live-link">
+                <i class="fas fa-external-link-alt"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/wtfnixin/PRODIGY_WD_02" class="project-link github-link">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card">
+          <div class="card-image mobile-app">
+            <i class="fas fa-tasks"></i>
+          </div>
+          <div class="card-content">
+            <h3 class="project-title">TechVision Landing Page</h3>
+            <p class="project-description">
+              Modern, responsive tech company website with particle animations,
+              glassmorphism effects, and smooth scroll interactions.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Adobe Fonts</span>
+            </div>
+            <div class="project-links">
+              <a href=" https://prodigywd01.vercel.app/" class="project-link live-link">
+                <i class="fas fa-external-link-alt"></i>
+                Live Demo
+              </a>
+              <a href="https://github.com/wtfnixin/PRODIGY_WD_01" class="project-link github-link">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="project-card">
+          <div class="card-image portfolio">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="card-content">
+            <h3 class="project-title">Tic Tac Toe Game</h3>
+            <p class="project-description">
+              Interactive Tic Tac Toe game with custom animations, sound
+              effects, and meme celebrations. Features responsive design and
+              engaging gameplay.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">HTML5</span>
+              <span class="tech-tag">CSS3</span>
+              <span class="tech-tag">Javascript</span>
+              <span class="tech-tag">Audio API</span>
+            </div>
+            <div class="project-links">
+              <a href=" https://prodigywd03.vercel.app/" class="project-link live-link">
+                <i class="fas fa-external-link-alt"></i>
+                Preview 
+              </a>
+              <a href="https://github.com/wtfnixin/PRODIGY_WD_03" class="project-link github-link">
+                <i class="fab fa-github"></i>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="contact-content"></div>
+      <div class="contact-content"></div>
     </section>
 
     <script src="script.js"></script>
