@@ -8,7 +8,7 @@ A modern, responsive personal portfolio website showcasing my skills, projects, 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![Responsive](https://img.shields.io/badge/Responsive-Yes-green)
 <br>
-##Preview: https://nitinportfolio-fawn.vercel.app/
+# Preview: https://nitinportfolio-fawn.vercel.app/
 
 ## 🚀 Features
 
