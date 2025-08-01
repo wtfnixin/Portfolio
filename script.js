@@ -11,6 +11,23 @@ function toggleTheme() {
   }
 }
 
+// Hamburger menu functionality
+function toggleMenu() {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+}
+
+function closeMenu() {
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  hamburger.classList.remove('active');
+  navMenu.classList.remove('active');
+}
+
 // Typewriter effect function
 function typeWriter(element, text, speed = 100) {
   let i = 0;
@@ -39,9 +56,7 @@ function initTypewriter() {
   }
 }
 
-// Enhanced smooth scrolling for all navigation links
 document.addEventListener('DOMContentLoaded', function() {
-  // Smooth scrolling for all anchor links
   const allLinks = document.querySelectorAll('a[href^="#"]');
   
   allLinks.forEach(link => {
@@ -85,13 +100,11 @@ function animateOnScroll() {
     .social-link
   `);
   
-  // Intersection Observer options
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
   };
   
-  // Create observer for scroll elements only
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -100,11 +113,9 @@ function animateOnScroll() {
     });
   }, observerOptions);
   
-  // Animate hero elements immediately on page load (no observer needed)
   heroElements.forEach((element, index) => {
     element.classList.add('animate-element');
-    // Staggered delay for hero elements
-    const delay = index * 150; // 150ms between each hero element
+    const delay = index * 150; 
     element.style.animationDelay = `${delay}ms`;
     
     // Animate immediately without observer
@@ -113,11 +124,9 @@ function animateOnScroll() {
     }, delay);
   });
   
-  // Apply scroll-based animation to non-hero elements only
   scrollElements.forEach((element, index) => {
     element.classList.add('animate-element');
-    // Add staggered delay for elements in the same section
-    const delay = (index % 5) * 100; // Stagger by 100ms for every 5 elements
+    const delay = (index % 5) * 100;
     element.style.animationDelay = `${delay}ms`;
     
     // Only observe non-hero elements
@@ -127,7 +136,6 @@ function animateOnScroll() {
 
 // Smooth scroll behavior for the entire page
 function addSmoothScrolling() {
-  // Add smooth scrolling CSS if not already present
   if (!document.querySelector('#smooth-scroll-style')) {
     const style = document.createElement('style');
     style.id = 'smooth-scroll-style';
@@ -203,7 +211,6 @@ function addSmoothScrolling() {
   }
 }
 
-// Initialize all animations and smooth scrolling when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
   addSmoothScrolling();
   animateOnScroll();
