@@ -327,7 +327,9 @@ body.dark-theme .hero h2 {
 }
 
 .hero .skills a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   border: 2px solid rgb(30 41 59);
   border-radius: 10px;
   padding: 8px 16px;
@@ -355,6 +357,24 @@ body.dark-theme .hero .skills a:hover {
   background-color: rgb(30 41 59);
   color: rgb(214 211 209);
   transform: translateY(-3px);
+}
+
+/* Global Animation Classes Used by App.jsx */
+.animate-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fix glitch for elements with overflow:hidden */
+.social-link.animate-element,
+.contact-card.animate-element {
+  transform: none !important;
 }
 
 .container {
@@ -514,18 +534,18 @@ body.dark-theme .project-card:hover {
 }
 
 .card-image.web-app { 
-  background-image: url('stopwatch.png');
+  background-image: url('/assets/stopwatch.png');
 }
 
 .card-image.mobile-app {
-  background-image: url('techvision.png');
+  background-image: url('/assets/techvision.png');
 }
 
 .card-image.portfolio {
-  background-image: url('tic tac.png');
+  background-image: url('/assets/tic tac.png');
 }
 .card-image.tic-tac-toe {
-  background-image: url('Screenshot\ 2025-09-02\ 232826.png');
+  background-image: url('/assets/Screenshot%202025-09-02%20232826.png');
 }
 
 .card-content {
@@ -550,6 +570,7 @@ body.dark-theme .project-title {
   font-size: 12px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -764,7 +785,6 @@ body.dark-theme .contact-card:hover {
   color: hsl(210 40% 98%);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  overflow: hidden;
 }
 
 .contact-card:hover .contact-icon {
@@ -783,6 +803,50 @@ body.dark-theme .contact-icon {
   color: hsl(222.2 84% 4.9%);
   margin-bottom: 8px;
 }
+
+/* ... rest of contact styles lines 800+ ... */
+
+/* Jumping to Social Link Section around line 987 */
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: hsl(0 0% 100%);
+  color: hsl(222.2 84% 4.9%);
+  border: 1px solid hsl(214.3 31.8% 91.4%);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link i,
+.social-link span {
+  position: relative;
+  z-index: 2;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.1), transparent);
+  transition: left 0.5s ease;
+  z-index: 1;
+}
+
+.social-link:hover::before {
+  left: 100%;
+}
+
 
 body.dark-theme .contact-card h3 {
   color: hsl(210 40% 98%);
@@ -986,6 +1050,12 @@ body.dark-theme .social-links h3 {
   overflow: hidden;
 }
 
+.social-link i,
+.social-link span {
+  position: relative;
+  z-index: 2;
+}
+
 .social-link::before {
   content: '';
   position: absolute;
@@ -995,6 +1065,7 @@ body.dark-theme .social-links h3 {
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.1), transparent);
   transition: left 0.5s ease;
+  z-index: 1;
 }
 
 .social-link:hover::before {
